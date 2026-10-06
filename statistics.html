@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Статистика - WHWP</title>
+    <link rel="stylesheet" href="style.css">
+    <style>html.auth-pending body { visibility: hidden; }</style>
+    <script>document.documentElement.classList.add('auth-pending');</script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="auth.js"></script>
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand-link" href="index.html">WHWP</a>
+        <nav class="site-nav" aria-label="Основная навигация">
+            <a href="index.html" class="nav-link">Главная</a>
+            <a href="write.html" class="nav-link">Записать</a>
+            <a href="find.html" class="nav-link">Узнать</a>
+            <a href="statistics.html" class="nav-link active">Статистика</a>
+            <a href="grades.html" class="nav-link">Оценки</a>
+            <a href="schedule.html" class="nav-link">Расписание</a>
+            <a href="calendar.html" class="nav-link">Календарь</a>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Включить тёмную тему" title="Тёмная тема">
+            <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1"></path></svg>
+            <svg class="theme-icon theme-icon-moon is-hidden" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"></path></svg>
+        </button>
+        <button class="logout-btn" type="button" data-logout>Выйти</button>
+    </header>
+    <main class="standalone-page">
+        <div class="page-heading">
+            <a href="index.html" class="btn back-btn">Назад</a>
+            <h1 class="section-title">Статистика</h1>
+        </div>
+        <section class="stats-grid">
+            <article class="stat-panel level-panel">
+                <div class="panel-kicker">Текущий уровень</div>
+                <div class="level-line"><span id="level-value">1</span><span class="level-label">LEVEL</span></div>
+                <div class="xp-meta"><span id="xp-value">0 / 100 XP</span><span>До следующего уровня</span></div>
+                <div class="xp-track"><div id="xp-progress" class="xp-progress"></div></div>
+                <p class="panel-note">За каждое выполненное задание начисляется 10 XP.</p>
+            </article>
+            <article class="stat-panel completed-panel">
+                <div class="panel-kicker">Выполнено всего</div>
+                <div id="completed-value" class="completed-value">0</div>
+                <div class="panel-note">заданий закрыто</div>
+            </article>
+        </section>
+        <section class="stat-panel chart-panel">
+            <div class="panel-heading">
+                <h2 class="section-title">Выполненные задания</h2>
+                <span class="panel-note">Последние 7 дней</span>
+            </div>
+            <div id="completion-chart" class="completion-chart"></div>
+        </section>
+    </main>
+    <script src="app.js"></script>
+    <script src="statistics.js"></script>
+</body>
+</html>

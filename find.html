@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Узнать ДЗ - WHWP</title>
+    <link rel="stylesheet" href="style.css">
+    <style>html.auth-pending body { visibility: hidden; }</style>
+    <script>document.documentElement.classList.add('auth-pending');</script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="auth.js"></script>
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand-link" href="index.html">WHWP</a>
+        <nav class="site-nav" aria-label="Основная навигация">
+            <a href="index.html" class="nav-link">Главная</a>
+            <a href="write.html" class="nav-link">Записать</a>
+            <a href="find.html" class="nav-link active">Узнать</a>
+            <a href="statistics.html" class="nav-link">Статистика</a>
+            <a href="grades.html" class="nav-link">Оценки</a>
+            <a href="schedule.html" class="nav-link">Расписание</a>
+            <a href="calendar.html" class="nav-link">Календарь</a>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Включить тёмную тему" title="Тёмная тема">
+            <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1"></path></svg>
+            <svg class="theme-icon theme-icon-moon is-hidden" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"></path></svg>
+        </button>
+        <button class="logout-btn" type="button" data-logout>Выйти</button>
+    </header>
+    <div class="page-layout">
+        <aside class="sidebar">
+            <h2 class="sidebar-title">Предметы</h2>
+            <div class="subject-list">
+                <button class="subject-btn" data-subject="Все">Все</button>
+                <button class="subject-btn" data-subject="Русский язык">Русский язык</button>
+                <button class="subject-btn" data-subject="Литература">Литература</button>
+                <button class="subject-btn" data-subject="Иностранный язык">Иностранный язык</button>
+                <button class="subject-btn" data-subject="Алгебра">Алгебра</button>
+                <button class="subject-btn" data-subject="Геометрия">Геометрия</button>
+                <button class="subject-btn" data-subject="Вероятность и статистика">Вероятность и статистика</button>
+                <button class="subject-btn" data-subject="Информатика">Информатика</button>
+                <button class="subject-btn" data-subject="История">История</button>
+                <button class="subject-btn" data-subject="Обществознание">Обществознание</button>
+                <button class="subject-btn" data-subject="География">География</button>
+                <button class="subject-btn" data-subject="Физика">Физика</button>
+                <button class="subject-btn" data-subject="Химия">Химия</button>
+                <button class="subject-btn" data-subject="Биология">Биология</button>
+                <button class="subject-btn" data-subject="Труд (технология)">Труд (технология)</button>
+                <button class="subject-btn" data-subject="Основы безопасности и защиты Родины (ОБЗР)">ОБЗР</button>
+                <button class="subject-btn" data-subject="Физическая культура">Физическая культура</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <a href="index.html" class="btn back-btn">Назад</a>
+
+            <div class="section-heading-row">
+                <h2 class="section-title">Домашние задания</h2>
+                <button id="refresh-homework-btn" class="btn refresh-btn" type="button">
+                    <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20 11a8 8 0 0 0-14.8-4L3 10"></path>
+                        <path d="M3 5v5h5M4 13a8 8 0 0 0 14.8 4L21 14"></path>
+                        <path d="M21 19v-5h-5"></path>
+                    </svg>
+                    Обновить
+                </button>
+            </div>
+
+            <div id="homework-container" class="homework-grid">
+                <!-- Карточки будут добавлены через JavaScript -->
+            </div>
+
+            <div id="empty-state" class="empty-state" style="display: none;">
+                Здесь пока нет домашних заданий
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="find.js"></script>
+</body>
+</html>

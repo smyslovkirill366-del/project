@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru" data-public-page="true">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход - WHWP</title>
+    <link rel="stylesheet" href="style.css">
+    <style>html.auth-pending body { visibility: hidden; }</style>
+    <script>document.documentElement.classList.add('auth-pending');</script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase.js"></script>
+    <script src="auth.js"></script>
+</head>
+<body class="login-page">
+    <main class="login-shell">
+        <section class="login-card" aria-labelledby="login-title">
+            <div class="login-mark" aria-hidden="true">
+                <svg viewBox="0 0 48 48">
+                    <rect x="8" y="8" width="32" height="32"></rect>
+                    <path d="M16 24h16M24 16v16"></path>
+                </svg>
+            </div>
+            <h1 id="login-title">WHWP</h1>
+            <p class="login-caption">Закрытая зона</p>
+
+            <form id="login-form" class="login-form">
+                <label class="form-label" for="login-email">Email</label>
+                <input id="login-email" class="form-input" type="email" autocomplete="email" required>
+                <label class="form-label" for="login-password">Пароль</label>
+                <input id="login-password" class="form-input" type="password" autocomplete="current-password" required>
+                <button id="login-button" class="btn btn-large login-button" type="submit">
+                    <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M4 12h14M13 6l6 6-6 6"></path>
+                    </svg>
+                    Войти
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>
